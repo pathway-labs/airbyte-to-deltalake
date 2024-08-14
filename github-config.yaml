@@ -3,7 +3,7 @@ source:
   config:
     credentials:
       option_title: "PAT Credentials"
-      personal_access_token: $GITHUB_PERSONAL_ACCESS_TOKEN
+      personal_access_token: $GITHUB_PERSONAL_ACCESS_TOKEN  # Or replace with your personal access token
     repositories:
       - pathwaycom/pathway
     api_url: "https://api.github.com/"
