@@ -1,9 +1,6 @@
 import json
 import os
 
-from delta import configure_spark_with_delta_pip
-from pyspark.sql import SparkSession
-
 import pathway as pw
 
 
