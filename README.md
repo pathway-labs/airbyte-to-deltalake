@@ -40,11 +40,13 @@ To run Docker locally, use the following command:
 ```bash
 docker run \
     -e PATHWAY_LICENSE_KEY=YOUR_LICENSE_KEY \
+    -e GITHUB_PERSONAL_ACCESS_TOKEN=YOUR_GITHUB_PERSONAL_ACCESS_TOKEN \
     -e AWS_S3_OUTPUT_PATH=YOUR_OUTPUT_PATH_IN_S3_BUCKET \
     -e AWS_S3_ACCESS_KEY=YOUR_S3_ACCESS_KEY \
     -e AWS_S3_SECRET_ACCESS_KEY=YOUR_S3_SECRET_ACCESS_KEY \
     -e AWS_BUCKET_NAME=YOUR_BUCKET_NAME \
     -e AWS_REGION=YOUR_AWS_REGION \
+    -e PATHWAY_SPAWN_ARGS='--repository-url https://github.com/pathway-labs/airbyte-to-deltalake python main.py' \
     -t pathwaycom/pathway:latest
 ```
 
