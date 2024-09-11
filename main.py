@@ -80,6 +80,7 @@ if __name__ == "__main__":
         commit_timestamp=pw.apply(extract_commit_timestamp, pw.this.data),
         data=pw.this.data,
     )
+    pw.io.deltalake.write(commits_table, "./commit-storage")
 
     # Delta table output to S3: works if the path is passed as an env var
     s3_output_path = os.environ.get("AWS_S3_OUTPUT_PATH")

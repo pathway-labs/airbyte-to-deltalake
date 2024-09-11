@@ -2,7 +2,7 @@
 
 This repository contains modified example code for the ["Data Preparation for Spark Analytics"](https://pathway.com/developers/templates/delta_lake_etl) tutorial.
 
-The changes were made to ensure the code can run in the cloud using the [Pathway BYOL](https://aws.amazon.com/marketplace/pp/prodview-qijbgoyohele4) container. This version of the code is designed to **extract** data from GitHub, **transform** it by removing sensitive information, and **load** the cleaned data into a Delta Lake hosted on S3.
+The changes were made to ensure the code can run in the cloud using the [Pathway BYOL](https://aws.amazon.com/marketplace/pp/prodview-qijbgoyohele4) or [Dockerhub](https://hub.docker.com/r/pathwaycom/pathway) container. This version of the code is designed to **extract** data from GitHub, **transform** it by removing sensitive information, and **load** the cleaned data into a Delta Lake hosted on S3.
 
 ## Running the Example
 
