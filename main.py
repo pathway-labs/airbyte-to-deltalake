@@ -98,4 +98,10 @@ if __name__ == "__main__":
             commits_table, s3_output_path, s3_connection_settings=credentials
         )
 
-    pw.run(monitoring_level=pw.MonitoringLevel.NONE)
+    persistence_config = pw.persistence.Config(
+        backend=pw.persistence.Backend.filesystem(path="./PersistentStorage")
+    )
+    pw.run(
+        monitoring_level=pw.MonitoringLevel.NONE,
+        persistence_config=persistence_config,
+    )
