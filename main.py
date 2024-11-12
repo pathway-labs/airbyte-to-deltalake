@@ -72,7 +72,7 @@ if __name__ == "__main__":
         "./prepared-github-config.yaml",
         streams=["commits"],
         enforce_method="pypi",
-        mode="static",
+        mode=os.environ.get("INPUT_CONNECTOR_MODE", "static"),
     )
     commits_table = commits_table.select(data=pw.apply(remove_emails, pw.this.data))
     commits_table = commits_table.select(
@@ -97,11 +97,4 @@ if __name__ == "__main__":
         pw.io.deltalake.write(
             commits_table, s3_output_path, s3_connection_settings=credentials
         )
-
-    persistence_config = pw.persistence.Config(
-        backend=pw.persistence.Backend.filesystem(path="./PersistentStorage")
-    )
-    pw.run(
-        monitoring_level=pw.MonitoringLevel.NONE,
-        persistence_config=persistence_config,
-    )
+    pw.run(monitoring_level=pw.MonitoringLevel.NONE)
