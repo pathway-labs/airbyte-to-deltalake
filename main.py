@@ -45,9 +45,10 @@ def remove_emails(raw_commit_data: pw.Json) -> pw.Json:
 
 
 def extract_author_login(commit_data: pw.Json) -> str:
-    if not commit_data["author"]:
+    commit_data = commit_data.as_dict()
+    if "author" not in commit_data or not commit_data["author"]:
         return ""
-    return commit_data["author"]["login"].as_str()
+    return commit_data["author"]["login"]
 
 
 def extract_commit_timestamp(commit_data: pw.Json) -> pw.DateTimeUtc:
