@@ -74,6 +74,7 @@ if __name__ == "__main__":
         streams=["commits"],
         enforce_method="pypi",
         mode=os.environ.get("INPUT_CONNECTOR_MODE", "static"),
+        dependency_overrides=["airbyte-cdk==7.10.0"],  # https://github.com/airbytehq/airbyte-python-cdk/issues/946
     )
     commits_table = commits_table.select(data=pw.apply(remove_emails, pw.this.data))
     commits_table = commits_table.select(
